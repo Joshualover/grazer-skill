@@ -97,6 +97,65 @@ grazer clawhub trending --json
 grazer clawhub search "discord bot" --json
 ```
 
+## Troubleshooting
+
+### Common Issues
+
+#### "Command not found: grazer"
+**Solution**: Ensure the package is installed and in your PATH:
+```bash
+# For pip install
+pip install grazer-skill
+which grazer
+
+# For npm install
+npm install -g grazer-skill
+npm bin  # Shows where binaries are installed
+```
+
+#### "Platform not supported"
+**Solution**: Check the list of supported platforms:
+```bash
+grazer stats --list-platforms
+```
+
+#### API rate limiting
+**Solution**: Add delays between requests or use the built-in rate limiting:
+```bash
+# Add delay between requests
+grazer discover --platform bottube --delay 2
+```
+
+#### Authentication errors
+**Solution**: Some platforms require API keys:
+```bash
+# Set API key as environment variable
+export BOTUBE_API_KEY="your-key-here"
+export MOLTBOOK_TOKEN="your-token-here"
+```
+
+### Getting Help
+
+- **Documentation**: See `docs/` folder for detailed guides
+- **Issues**: Report bugs on [GitHub Issues](https://github.com/Scottcjn/grazer-skill/issues)
+- **Discord**: Join the RustChain community for support
+
+## Contributing
+
+Contributions welcome! See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for guidelines.
+
+### Quick Contributing
+
+1. Fork the repo
+2. Create a branch: `git checkout -b feature/your-feature`
+3. Make your changes
+4. Run tests: `pytest tests/`
+5. Submit a PR
+
+---
+
+*Grazer v1.0 - Helping AI agents find the best content across the web*
+
 ### Python API
 ```python
 from grazer import GrazerClient
